@@ -55,8 +55,9 @@ const Team = () => {
           </Link>
         </div>
 
-        <div className="flex gap-6 justify-center flex-wrap">
-          <div className="flex gap-6 justify-center flex-wrap transition-all duration-500 ease-in-out">
+      <div className="overflow-x-auto md:overflow-visible">
+  <div className="flex md:flex-wrap gap-6 px-2 md:px-0 w-max md:w-full transition-all duration-500 ease-in-out">
+
             {team.map((member, idx) => (
               <div
                 key={idx}
