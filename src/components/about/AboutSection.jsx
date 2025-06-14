@@ -1,5 +1,6 @@
 import React from 'react';
 import team_work from '../../assets/about-us.webp';
+import Counter from './Counter'; 
 
 const AboutSection = () => {
   return (
@@ -9,7 +10,6 @@ const AboutSection = () => {
         {/* Left Image Section */}
         <div className="relative w-full md:w-[45%] ">
           <div className="relative overflow-hidden ">
-            {/* Image with overlay */}
             <img
               src={team_work}
               alt="Team work"
@@ -17,17 +17,24 @@ const AboutSection = () => {
             />
 
             {/* Stats Overlay */}
-            <div className="absolute bottom-4 right-4 bg-white rounded-lg shadow-md  px-4 py-3 sm:px-6 sm:py-4 flex justify-around items-center text-center gap-4 sm:gap-6 w-[90%] max-w-sm">
+            <div className="absolute bottom-2 right-4 bg-white rounded-lg shadow-md px-4 py-4 sm:px-6 sm:py-4 flex justify-around items-center text-center gap-4 sm:gap-6 w-[90%] max-w-sm">
               <div>
-                <h3 className="text-[#00a4f0] font-bold text-lg sm:text-xl">7+</h3>
+                <h3 className="text-[#00a4f0] py-2 font-bold text-lg sm:text-2xl">
+                  <Counter end={7} />
+                </h3>
                 <p className="text-gray-500 text-xs">Years of experience</p>
               </div>
               <div>
-                <h3 className="text-[#00a4f0] font-bold text-lg sm:text-xl">2018</h3>
+                <h3 className="text-[#00a4f0]  py-2  font-bold text-lg sm:text-2xl">
+                  {/* <Counter end={2018} duration={1500} /> */}
+                  2018
+                </h3>
                 <p className="text-gray-500 text-xs">Founded year</p>
               </div>
               <div>
-                <h3 className="text-[#00a4f0] font-bold text-lg sm:text-xl">40+</h3>
+                <h3 className="text-[#00a4f0]  py-2  font-bold text-lg sm:text-2xl">
+                  <Counter end={40} />
+                </h3>
                 <p className="text-gray-500 text-xs ">Projects Completed</p>
               </div>
             </div>
@@ -41,7 +48,7 @@ const AboutSection = () => {
             Empowering Innovation,<br className="hidden sm:block" />
             Driving Digital Success
           </h2>
-          <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+          <p className="text-gray-600 leading-relaxed text-sm sm:text-base text-justify">
             At KiteCareer, we are passionate innovators dedicated to delivering smart,
             scalable, and impactful digital solutions. With expertise spanning product development,
             AI, IoT, Blockchain, and cloud computing, we empower businesses to grow and adapt in a

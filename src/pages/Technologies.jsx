@@ -1,10 +1,27 @@
 import React from 'react'
-import TechnologyTabs from '../components/technologies/TechnologyTabs'
+import slider1 from "../assets/technology-slider.jpeg";
+import HomeIcon from '../utils/HomeIcon';
+import CommonSlider from '../utils/CommonSlider';
+import TechnologiesSection from '../components/technology/TechnologiesSection';
 
-const Technologies = () => {
+const Technologies= () => {
+ const slides = [
+  {
+    image: slider1, 
+    title: "Technologies",
+  },
+];
+
+const breadcrumbItems = [
+  { label: "Home", link: "/", icon: HomeIcon },
+  { label: "Technologies" },
+];
+
+
   return (
-    <div className='bg-[#f2f2f2] w-full'>
-        <TechnologyTabs/>        
+    <div>
+       <CommonSlider slides={slides} breadcrumbItems={breadcrumbItems} />
+       <TechnologiesSection/>
     </div>
   )
 }

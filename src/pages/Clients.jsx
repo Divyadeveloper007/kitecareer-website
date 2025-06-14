@@ -1,52 +1,31 @@
-import { useRef, useEffect } from "react";
-import { ChevronRight } from "lucide-react";
-import logo1 from "../assets/clients/duvaraha_builders.webp";
-import logo2 from "../assets/clients/athi_bankers.webp";
-import logo3 from "../assets/clients/sri_vari.webp";
-import logo4 from "../assets/clients/ewig.webp";
-import logo5 from "../assets/clients/freeze.webp";
+import { useEffect, useRef } from "react";
+import logo1 from "../assets/clients/athi_bankers.webp";
+import logo2 from "../assets/clients/sri_vari.webp";
+import logo3 from "../assets/clients/ewig.webp";
+import logo11 from "../assets/clients/client8.png";
+import logo14 from "../assets/clients/client11.png";
+import logo15 from "../assets/clients/client12.png";
+import logo16 from "../assets/clients/client13.png";
+import logo17 from "../assets/clients/client14.png";
+import logo18 from "../assets/clients/client15.png";
 
-const clients = [
-  { name: "Duvaraha Builders", logo: logo1 },
-  { name: "Athi Bankers", logo: logo2 },
-  { name: "Sri Vari", logo: logo3 },
-  { name: "Ewig Energie", logo: logo4 },
-  { name: "Freeze Service", logo: logo5 },
+const icons = [
+  { alt: "Athi Bankers", src: logo1 },
+  { alt: "Sri Vari", src: logo2 },
+  { alt: "Ewig Energie", src: logo3 },
+  { alt: "Reios", src: logo11 },
+  { alt: "Iron Temple", src: logo14 },
+  { alt: "Nimir", src: logo15 },
+  { alt: "LOFTx.ai", src: logo16 },
+  { alt: "Kasturi", src: logo17 },
+  { alt: "nu-technology", src: logo18 },
 ];
 
 const Clients = () => {
-  const scrollRef = useRef(null);
-
-  const itemWidth = 180 + 32; // 180px + mx-4 (16px left & right)
-
-  // ✅ Infinite scroll logic (click-based)
-  const handleScrollRight = () => {
-    if (!scrollRef.current) return;
-    const scrollElement = scrollRef.current;
-
-    scrollElement.scrollBy({ left: itemWidth, behavior: "smooth" });
-
-    // After scroll animation, check if we've reached second set, then reset
-    setTimeout(() => {
-      const halfWidth = scrollElement.scrollWidth / 2;
-      if (scrollElement.scrollLeft >= halfWidth) {
-        scrollElement.scrollLeft = scrollElement.scrollLeft - halfWidth;
-      }
-    }, 350); // smooth scroll duration
-  };
-
-  // ✅ On mount, set scrollLeft to 0
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollLeft = 0;
-    }
-  }, []);
+  const repeatedIcons = [...icons, ...icons]; // loop effect
 
   return (
-    <section
-      id="client"
-      className="bg-[#f2f2f2] py-14 px-4 md:px-10 items-center text-center relative"
-    >
+    <section id="client" className="py-14 px-4 md:px-10 text-center">
       <h4 className="text-[#00a4f0] font-bold text-lg tracking-wide mb-2">
         Clients
       </h4>
@@ -54,43 +33,23 @@ const Clients = () => {
         Amazing clients who trust us
       </h1>
 
-      {/* Chevron Right */}
-      <button
-        onClick={handleScrollRight}
-        className="absolute right-5 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:scale-110 transition hidden md:inline-block"
-        aria-label="Scroll clients right"
-      >
-        <ChevronRight className="text-blue-600 w-5 h-5" />
-      </button>
+      {/* Auto-scrolling section */}
+      <div className="overflow-hidden relative">
+        <div className="flex w-max animate-scroll gap-8 items-center py-6 px-4">
+          {repeatedIcons.map((icon, index) => (
+            <div
+              key={index}
+              className="min-w-[200px] h-[150px] bg-white border rounded-2xl shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center p-6"
+            >
+              <img
+                src={icon.src}
+                alt={icon.alt}
+                className="h-24 w-24 object-contain"
+              />
+            </div>
 
-      {/* Client scroll container */}
-      <div
-        ref={scrollRef}
-        className="overflow-x-auto scrollbar-hide whitespace-nowrap scroll-smooth"
-        onScroll={() => {
-          const el = scrollRef.current;
-          if (!el) return;
-          const halfWidth = el.scrollWidth / 2;
-          if (el.scrollLeft >= halfWidth) {
-            el.scrollLeft = el.scrollLeft - halfWidth;
-          } else if (el.scrollLeft <= 0) {
-            el.scrollLeft = el.scrollLeft + halfWidth;
-          }
-        }}
-      >
-        {/* Clients repeated twice for infinite loop */}
-        {[...clients, ...clients].map((client, index) => (
-          <div
-            key={index}
-            className="inline-block min-w-[180px] mx-4 shrink-0"
-          >
-            <img
-              src={client.logo}
-              alt={client.name}
-              className="h-20 object-contain mx-auto"
-            />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

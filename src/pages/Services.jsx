@@ -1,10 +1,28 @@
 import React from 'react'
-import OurServices from '../components/services/OurServices'
+import slider1 from "../assets/services/service-slider.jpg";
+import HomeIcon from '../utils/HomeIcon';
+import CommonSlider from '../utils/CommonSlider';
+import ServiceSection from '../components/services/ServiceSection';
+import ITServiceCards from '../components/services/ITServiceCards';
 
 const Services = () => {
+ const slides = [
+  {
+    image: slider1, // your image path
+    title: "Our Services",
+  },
+];
+
+const breadcrumbItems = [
+  { label: "Home", link: "/", icon: HomeIcon },
+  { label: "Our Services" },
+];
+
+
   return (
-      <div id='services' className='bg-[#f2f2f2] w-full'>
-        <OurServices/>
+    <div>
+       <CommonSlider slides={slides} breadcrumbItems={breadcrumbItems} />
+       <ITServiceCards/>
     </div>
   )
 }

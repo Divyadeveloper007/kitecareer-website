@@ -16,7 +16,7 @@ const MissionVisionValues = () => {
               className="w-16 h-16 mb-4 transition-transform duration-300 hover:scale-105"
             />
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Our Mission</h3>
-            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+            <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify">
               To enable individuals and organizations to grow through cutting-edge digital
               solutions and continuous learning, bridging the gap between technology and meaningful outcomes.
             </p>
@@ -30,7 +30,7 @@ const MissionVisionValues = () => {
               className="w-16 h-16 mb-4 transition-transform duration-300 hover:scale-105"
             />
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Our Vision</h3>
-            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+            <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify">
               To become a trusted global partner in digital innovation — known for transforming bold ideas
               into future-ready solutions that drive business growth and social impact.
             </p>
@@ -44,7 +44,7 @@ const MissionVisionValues = () => {
               className="w-16 h-16 mb-4 transition-transform duration-300 hover:scale-105"
             />
             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">Our Value</h3>
-            <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+            <p className="text-gray-700 text-sm md:text-base leading-relaxed text-justify">
               We stand for innovation, integrity, excellence, collaboration, customer focus, and continuous
               learning to build lasting value.
             </p>
